@@ -24,8 +24,8 @@ int filter3d()
 
 //char outPath1[]={"/home/zhm/dongzi/tide1.17/tide0/k3d_clean.bin"};
 //char plotPath1[]={"/home/zhm/dongzi/tide1.17/tide0/noise.dat"};
-char backupPath[]={"/project/zhm/ksz/z1/tidekperp/3d00noisefilter_rpar15_kc0.6_bin10.dat"};
-char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+char backupPath[]={"/project/zhm/ksz/z1/tidekperp/3d00noisefilter_rpar15_kc0.5_bin10.dat"};
+char inPath1[]={"/home/zhm/tidesData/tides00/2.000den00.bin"};
 char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00k3d_noisy_z1_rpar15.bin"};
 //variables and fftw setting
 //=================================

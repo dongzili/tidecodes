@@ -27,12 +27,12 @@ using namespace std;
 
 int vfield()
 {
-double h=0.678;
-double fH=1.55*h*100;
+double h=3;
+double fH=0.96*h*100;
 cout<<"start vfield"<<endl;
 
-char inPath[]={"/project/zhm/ksz/z1/tidekperp/00k3d_clean_z1_rpar15_kc0.6_l300.bin"};
-char outPath1[]={"/project/zhm/ksz/z1/tidekperp/00v_3d_z1_rpar15_kc0.6_l300.bin"};
+char inPath[]={"/project/zhm/ksz/z1/tidekperp/00k3d_clean_z2_rpar10_kc0.5_l300.bin"};
+char outPath1[]={"/project/zhm/ksz/z1/tidekperp/00v_3d_z2_rpar10_kc0.5_l300.bin"};
 
 //variables and fftw setting
 //=====================================

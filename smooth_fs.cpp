@@ -37,13 +37,13 @@ double dk=2.*PI/box;//fundamental frequency
 int smooth_fs()
 {
 //for smooth_fs
-double kc=0.6;  //high frequency cut off h/Mpc
-double Rpar=15;//foreground substract, higher signal better
+double kc=0.5;  //high frequency cut off h/Mpc
+double Rpar=10;//foreground substract, higher signal better
 double R=1.25; // smooth scale
-double kperp=0.13; //for lmin
+double kperp=0.08; //for lmin
 
-char inPath[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
-char outPath[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z1_rpar15_kc0.6_l300.bin"};
+char inPath[]={"/home/zhm/tidesData/tides00/2.000den00.bin"};
+char outPath[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z2_rpar10_kc0.5_l300.bin"};
 char outPath2[]={"/project/zhm/ksz/z1/tidekperp/00slice_smooth1.25_z1_rpar15_l300.bin"};
 
 

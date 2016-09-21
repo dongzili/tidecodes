@@ -27,9 +27,10 @@ int main()
 cout<<"start powerv"<<endl;
 
 //char plotPath1[]={"/project/zhm/ksz/z1/tidekperp/noise.dat"};
-char plotPath2[]={"/project/zhm/ksz/z1/tidekperp/00den_smofs_2dpowerspec_rpar15.dat"};
-char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
-char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z1_rpar15.bin"};
+char plotPath2[]={"/project/zhm/ksz/z1/tidekperp/00powv_2d_z1_rpar15_kc0.6_l300_bin20.bin"};
+char inPath1[]={"/home/zhm/tidesData/tides00/1.000velz00.bin"};
+//char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00v_3d_clean_z1_rpar15_kc0.6_l300.bin"};
 
 
 //variables and fftw setting
@@ -49,7 +50,7 @@ char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z1_rpar15.bin"};
     //=========================to group power spectra
 //=================================================
 //filter grouping information
-	int kbin_fil=10;
+	int kbin_fil=20;
 	double kstart_fil,kend_fil,kgap_fil;
 	kstart_fil=1.;
 	kend_fil=double(nnc);
@@ -202,7 +203,11 @@ if (isnan(pk[i][j]*pd[i][j]*pkd[i][j])!=0) return -1;
         }
         kout1=pow(10,(i+0.5)*kgap_fil)*dk;
 		kout2=pow(10,(j+0.5)*kgap_fil)*dk;
-    fprintf(out1," %e  %e  %e %e %e %e \n",kout1,kout2,pd[i][j]*renorm,pk[i][j]*renorm,pkd[i][j]*renorm,count[i][j]);
+        double k3pd=pd[i][j]*renorm*pow(kout1*kout1+kout2*kout2,1.5);
+        //for ploting reason
+        kout1=pow(10,(i)*kgap_fil)*dk;
+		kout2=pow(10,(j)*kgap_fil)*dk;
+    fprintf(out1," %e  %e  %e %e %e %e %e \n",kout1,kout2,pd[i][j]*renorm,pk[i][j]*renorm,pkd[i][j]*renorm,k3pd, count[i][j]);
     }
 	}
     fclose(out1);

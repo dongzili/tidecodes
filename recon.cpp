@@ -37,16 +37,10 @@ double R=1.25;      //smoothing scales
 int recon()
 {
 cout<<"start shear field calculation"<<endl;
-/*    
-char outPath1[]={"/home/zhm/dongzi/tidez1/pipdata/shear1.bin"};
-char outPath2[]={"/home/zhm/dongzi/tidez1/pipdata/shear2.bin"};
-char inPath[]={"/home/zhm/dongzi/tidez1/pipdata/smooth1.25lpk.bin"};
-char inPath_pl[]={"/home/zhm/dongzi/tidez1/pipdata/coeffz1.dat"};
-*/
 
-char outPath[]={"/project/zhm/ksz/z1/tidekperp/00k3d_noisy_z1_rpar15_kc0.6_l300.bin"};
-char inPath[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z1_rpar15_kc0.6_l300.bin"};
-char inPath_pl[]={"/home/zhm/dongzi/tidez1/coeffz1.dat"};
+char outPath[]={"/project/zhm/ksz/z1/tidekperp/00k3d_noisy_z2_rpar10_kc0.5_l300.bin"};
+char inPath[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z2_rpar10_kc0.5_l300.bin"};
+char inPath_pl[]={"/home/zhm/dongzi/tidez2/windowz2.dat"};
 
 
 //double alpha=0.9709,beta=2.1645;//for a=1,z=0

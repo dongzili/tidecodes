@@ -22,13 +22,13 @@ int powerv()
 {
 cout<<"start powerv"<<endl;
 
-char outPath[]={"/project/zhm/ksz/z1/tidekperp/00v_3d_clean_z1_rpar15_kc0.6_l300.bin"};
+char outPath[]={"/project/zhm/ksz/z1/tidekperp/00v_3d_clean_z2_rpar10_kc0.5_l300.bin"};
 //char plotPath1[]={"/project/zhm/ksz/z1/tidekperp/noise.dat"};
-char plotPath2[]={"/project/zhm/ksz/z1/tidekperp/00v_powerspec_rpar15_kc0.6_l300.dat"};
-char inPath1[]={"/home/zhm/tidesData/tides00/1.000velz00.bin"};
-char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00v_3d_z1_rpar15_kc0.6_l300.bin"};
-//char inPath_fil[]={"/project/zhm/ksz/z1/tidekperp/10v_noisebias_z1_rpar15_kc0.6.dat"};
-char inPath_fil[]={"/project/zhm/ksz/z1/tidekperp/00v_noisebias_rpar15_kc0.6_l300.dat"};
+char plotPath2[]={"/project/zhm/ksz/z1/tidekperp/00v_powerspec_rpar15_kc0.5_l300.dat"};
+char inPath1[]={"/home/zhm/tidesData/tides00/2.000velz00.bin"};
+char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00v_3d_z2_rpar10_kc0.5_l300.bin"};
+//char inPath_fil[]={"/project/zhm/ksz/z1/tidekperp/10v_noisebias_z2_rpar10_kc0.5.dat"};
+char inPath_fil[]={"/project/zhm/ksz/z1/tidekperp/00v_noisebias_z2_rpar10_kc0.5_l300.dat"};
 //variables and fftw setting
 //=================================
 //    double kcut=kc/dk; //for reconstructed momentum higher than this, cut!

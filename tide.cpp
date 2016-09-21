@@ -25,17 +25,17 @@ double dk=2.*PI/box;//fundamental frequency
 int main()
 {
     int check=0;
-   // check=smooth_fs();
+    check=smooth_fs();
 //  check=shear(); 
   //  check=filter3d();
-    /*
+    
     if (check!=0) cout<<"error smooth"<<endl;
     check=recon();
    if (check!=0) cout<<"error k3d_noisy"<<endl;
         check=filter_neg();
     if (check!=0) cout<<"error filter_neg"<<endl;
-  */ 
-    /*
+   
+    
     check=powerspec();
     if (check!=0) cout<<"error powerspec"<<endl;
      check=vfield();
@@ -45,7 +45,7 @@ int main()
 
   check=powerv();
     if (check!=0) cout<<"error powerv"<<endl;
-   */ 
+   /*
 check=momenfield();
     if (check!=0) cout<<"error momenfield"<<endl;
  check=powermomen();
@@ -53,7 +53,7 @@ check=momenfield();
 
 // check=momenorigin();
   //  if (check!=0) cout<<"error momenorigin"<<endl;
-
+*/
 cout<<"end whole program"<<endl;
     return 0;
 }

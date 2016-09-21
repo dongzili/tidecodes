@@ -29,15 +29,15 @@ int momenfield()
 {
     cout<<"start momenfield"<<endl;
 //char inPath1[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z1_rpar15.bin"};
-//char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+//char inPath1[]={"/home/zhm/tidesData/tides00/2.000den00.bin"};
 //char inPath1[]={"/project/zhm/ksz/z1/result/00den_z1_rpar15_kc1.bin"};
-//char inPath1[]={"/project/zhm/ksz/z1/tidepart/00k3d_clean_z1_rpar15_kc0.6.bin"};
+//char inPath1[]={"/project/zhm/ksz/z1/tidepart/00k3d_clean_z2_rpar10_kc0.5.bin"};
 char inPath1[]={"/project/zhm/ksz/z1/result/00den_z1_rpar15_kc1.3_l300.bin"};
-char inPath2[]={"/project/zhm/ksz/z1/tidepart/00v_3d_clean_z1_rpar15_kc0.6.bin"};
+char inPath2[]={"/project/zhm/ksz/z1/tidepart/00v_3d_clean_z2_rpar10_kc0.5.bin"};
 char outPath[]={"/project/zhm/ksz/z1/tidepart/00ns_tide_momen_2d_z1_rpar15_kc1.3_l300.bin"};
 
     /*
-char inPath2[]={"/home/zhm/tidesData/tides00/1.000velz00.bin"};
+char inPath2[]={"/home/zhm/tidesData/tides00/2.000velz00.bin"};
 
 char outPath[]={"/project/zhm/ksz/z1/tidekperp/00momen_2d_z1_origin.bin"};
 

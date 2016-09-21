@@ -28,14 +28,14 @@ cout<<"start powerv"<<endl;
 
 /*
 char plotPath2[]={"/home/zhm/dongzi/tidez1/3dtide_data/00den_2dpowerspec_rpar15.dat"};
-char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+char inPath1[]={"/home/zhm/tidesData/tides00/2.000den00.bin"};
 char inPath2[]={"/home/zhm/dongzi/tidez1/3dtide_data/00k3d_noisy_z1_rpar15.bin"};
 char inPath_fil[]={"/home/zhm/dongzi/tidez1/3dtide_data/10den_noisebias_z1_rpar15.dat"};
 */
 char plotPath2[]={"/home/zhm/dongzi/tidez1/3dtide_data/00v_2dpowerspec_rpar15.dat"};
-char inPath1[]={"/home/zhm/tidesData/tides00/1.000velz00.bin"};
+char inPath1[]={"/home/zhm/tidesData/tides00/2.000velz00.bin"};
 char inPath2[]={"/home/zhm/dongzi/tidez1/3dtide_data/00v_3d_z1_rpar15.bin"};
-char inPath_fil[]={"/home/zhm/dongzi/tidez1/3dtide_data/10v_noisebias_z1_rpar15_kc0.6.dat"};
+char inPath_fil[]={"/home/zhm/dongzi/tidez1/3dtide_data/10v_noisebias_z2_rpar10_kc0.5.dat"};
 //variables and fftw setting
 //=================================
 //    double kcut=kc/dk; //for reconstructed momentum higher than this, cut!
