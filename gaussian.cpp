@@ -47,9 +47,9 @@ int main()
    clock_t t=clock();
 char inPath[]={"/home/zhm/dongzi/tidez1/rpar15/00smooth1.25_z1_rpar15.bin"};
 
-char outPath[]={"/home/zhm/dongzi/tidez1/gauss_3d_r15kc0.5/00gausmooth1.25_z1_rpar15.bin"};
-char outPath2[]={"/home/zhm/dongzi/tidez1/gauss_3d_r15kc0.5/00slice_smooth1.25_z1_rpar15.bin"};
-char outPath_sort[]={"/home/zhm/dongzi/tidez1/gauss_3d_r15kc0.5/00sequence_smooth1.25_z1_rpar15.bin"};
+char outPath[]={"/home/zhm/dongzi/tidez1/gauss_3d_r15kc0.6/00gausmooth1.25_z1_rpar15.bin"};
+char outPath2[]={"/home/zhm/dongzi/tidez1/gauss_3d_r15kc0.6/00slice_smooth1.25_z1_rpar15.bin"};
+char outPath_sort[]={"/home/zhm/dongzi/tidez1/gauss_3d_r15kc0.6/00sequence_smooth1.25_z1_rpar15.bin"};
 //variables and fftw setting
 //=================================
     double *deltar;       //input field

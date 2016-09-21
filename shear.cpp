@@ -38,18 +38,18 @@ int shear()
 {
 cout<<"start shear field calculation"<<endl;
 /*    
-char outPath1[80]={"/home/zhm/dongzi/tidez1/pipdata/shear1.bin"};
-char outPath2[80]={"/home/zhm/dongzi/tidez1/pipdata/shear2.bin"};
-char inPath[80]={"/home/zhm/dongzi/tidez1/pipdata/smooth1.25lpk.bin"};
-char inPath_pl[80]={"/home/zhm/dongzi/tidez1/pipdata/coeffz1.dat"};
+char outPath1[]={"/home/zhm/dongzi/tidez1/pipdata/shear1.bin"};
+char outPath2[]={"/home/zhm/dongzi/tidez1/pipdata/shear2.bin"};
+char inPath[]={"/home/zhm/dongzi/tidez1/pipdata/smooth1.25lpk.bin"};
+char inPath_pl[]={"/home/zhm/dongzi/tidez1/pipdata/coeffz1.dat"};
 */
 
-char outPath[]={"/home/zhm/dongzi/tidez1/3dtidenew/00shear"};
-char outname[80];
+char outPath[]={"/project/zhm/ksz/z1/tidekperp/00shear"};
+char outname[];
 
-char outPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00k3d_noisy_z1_rpar15_gaz0.5.bin"};
-char inPath[80]={"/home/zhm/dongzi/tidez1/rpar15/00smooth1.25_z1_rpar15.bin"};
-char inPath_pl[80]={"/home/zhm/dongzi/tidez1/coeffz1.dat"};
+char outPath2[]={"/project/zhm/ksz/z1/tidekperp/00k3d_noisy_z1_rpar15_gaz0.5.bin"};
+char inPath[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z1_rpar15.bin"};
+char inPath_pl[]={"/home/zhm/dongzi/tidez1/coeffz1.dat"};
 
 
 //double alpha=0.9709,beta=2.1645;//for a=1,z=0

@@ -1,18 +1,18 @@
 #include<stdio.h>
 #include<iostream>
 using namespace std;
-
-int vfield();
-int smooth_fs();
-int recon();
-int powerv();
-int powerspec();
-int powermomen();
-int momenorigin();
-int momenfield();
-int filterv();
-int filter_neg();
-
+#include"smooth_fs.h"
+#include"recon.h"
+#include"powerspec.h"
+#include"filter_neg.h"
+#include"vfield.h"
+#include"filterv.h"
+#include"powerv.h"
+#include"momenfield.h"
+#include"powermomen.h"
+#include"momenorigin.h"
+#include"filter3d.h"
+#include"shear.h"
 
 //Global variable for whole project:
 double PI=3.1415926;
@@ -26,13 +26,15 @@ int main()
 {
     int check=0;
    // check=smooth_fs();
-   
+//  check=shear(); 
+  //  check=filter3d();
+    /*
     if (check!=0) cout<<"error smooth"<<endl;
-//    check=recon();
+    check=recon();
    if (check!=0) cout<<"error k3d_noisy"<<endl;
         check=filter_neg();
     if (check!=0) cout<<"error filter_neg"<<endl;
-   
+  */ 
     /*
     check=powerspec();
     if (check!=0) cout<<"error powerspec"<<endl;
@@ -41,9 +43,9 @@ int main()
  check=filterv();
     if (check!=0) cout<<"error filterv"<<endl;
 
-    
   check=powerv();
     if (check!=0) cout<<"error powerv"<<endl;
+   */ 
 check=momenfield();
     if (check!=0) cout<<"error momenfield"<<endl;
  check=powermomen();
@@ -51,7 +53,7 @@ check=momenfield();
 
 // check=momenorigin();
   //  if (check!=0) cout<<"error momenorigin"<<endl;
-*/
+
 cout<<"end whole program"<<endl;
     return 0;
 }

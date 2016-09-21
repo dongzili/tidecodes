@@ -37,13 +37,14 @@ double dk=2.*PI/box;//fundamental frequency
 int smooth_fs()
 {
 //for smooth_fs
-double kc=0.5;  //high frequency cut off h/Mpc
+double kc=0.6;  //high frequency cut off h/Mpc
 double Rpar=15;//foreground substract, higher signal better
 double R=1.25; // smooth scale
+double kperp=0.13; //for lmin
 
-char inPath[80]={"/home/zhm/tides00/1.000den00.bin"};
-char outPath[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00smooth1.25_z1_rpar15.bin"};
-char outPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00slice_smooth1.25_z1_rpar15.bin"};
+char inPath[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+char outPath[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z1_rpar15_kc0.6_l300.bin"};
+char outPath2[]={"/project/zhm/ksz/z1/tidekperp/00slice_smooth1.25_z1_rpar15_l300.bin"};
 
 
 //variables and fftw setting
@@ -91,13 +92,15 @@ cout<<"fftw forward"<<endl;
 cout<<"smooth in fourier space"<<endl;
 
     int no=0;//for matrix index
-    double ksquare,kx,ky,kz;
+    double ksquare,kx,ky,kz,kpsquare;
 	double sincx,sincy,sincz;
     double smooth;
 	double winfs;
 
 	double kc2=kc/dk;//to compare with ksquare
 	kc2*=kc2;
+    double kperp2=kperp/dk;
+    kperp2*=kperp2;
 	double Rpar2=Rpar*Rpar;
 
     for(int i=0;i<nn;i++)
@@ -111,8 +114,9 @@ cout<<"smooth in fourier space"<<endl;
                 ky=double(j<nnc?j:(j-nn));
                 kz=double(i<nnc?i:(i-nn));
                 ksquare=kx*kx+ky*ky+kz*kz;
+                kpsquare=kx*kx+ky*ky;
 				//high energy cut off
-				if (ksquare > kc2) 
+				if (ksquare > kc2 || kpsquare < kperp2) 
 				{
 					deltak[no][0]=0.;
 					deltak[no][1]=0.;

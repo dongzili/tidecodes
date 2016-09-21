@@ -22,13 +22,12 @@ int powerv()
 {
 cout<<"start powerv"<<endl;
 
-char outPath[]={"/project/zhm/ksz/z1/tidekperp/00v_3d_clean_z1_rpar15_kc0.6_l300.bin"};
-//char plotPath1[]={"/project/zhm/ksz/z1/tidekperp/noise.dat"};
-char plotPath2[]={"/project/zhm/ksz/z1/tidekperp/00v_powerspec_rpar15_kc0.6_l300.dat"};
-char inPath1[]={"/home/zhm/tidesData/tides00/1.000velz00.bin"};
-char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00v_3d_z1_rpar15_kc0.6_l300.bin"};
-//char inPath_fil[]={"/project/zhm/ksz/z1/tidekperp/10v_noisebias_z1_rpar15_kc0.6.dat"};
-char inPath_fil[]={"/project/zhm/ksz/z1/tidekperp/00v_noisebias_rpar15_kc0.6_l300.dat"};
+char outPath[80]={"/home/zhm/dongzi/tidez1/pipdata/00v_3d_clean_z1_rpar60_kc0.5.bin"};
+//char plotPath1[80]={"/home/zhm/dongzi/tidez1/pipdata/noise.dat"};
+char plotPath2[80]={"/home/zhm/dongzi/tidez1/pipdata/00v_powerspec_rpar60.dat"};
+char inPath1[80]={"/home/zhm/tides00/1.000velz00.bin"};
+char inPath2[80]={"/home/zhm/dongzi/tidez1/pipdata/00v_3d_z1_rpar60.bin"};
+char inPath_fil[80]={"/home/zhm/dongzi/tidez1/pipdata/10v_noisebias_z1_rpar60_kc0.5.dat"};
 //variables and fftw setting
 //=================================
 //    double kcut=kc/dk; //for reconstructed momentum higher than this, cut!
@@ -141,8 +140,7 @@ cout<<"fftw forward"<<endl;
     fftw_destroy_plan(plan1);
     fftw_execute(plan2);
     fftw_destroy_plan(plan2);
-    fftw_free(deltar1);
-    fftw_free(deltar2);
+
 //========================================
 cout<<"calculate power spectra"<<endl;
 
@@ -171,15 +169,13 @@ cout<<"calculate power spectra"<<endl;
 				korth=sqrt(kx*kx+ky*ky);
 				kpar=fabs(kz);
 
-                if (korth==0 && kpar==0) //korth==0,infinite noise, kpar=0 don't contribute to vz
+                if (korth==0 || kpar==0) //korth==0,infinite noise, kpar=0 don't contribute to vz
                 {
 					deltak2[no][0]=0.;
 					deltak2[no][1]=0.;
                     no++;
                     continue;
                 }
-                if (korth==0)korth++;
-                if (kpar==0)kpar++;
 
                 korth=log10(korth);
 				kpar=log10(kpar);
@@ -202,7 +198,7 @@ cout<<"calculate power spectra"<<endl;
 				{
                     if (bb[index1][index2]!=0)
                     {
-                        if(bb[index1][index2]<1e-4) window[index1][index2]=0;
+                        if(bb[index1][index2]<0) bb[index1][index2]=1.;
 				deltak2[no][0]=deltak2[no][0]*window[index1][index2]/bb[index1][index2];
 				deltak2[no][1]=deltak2[no][1]*window[index1][index2]/bb[index1][index2];
 					}
@@ -263,9 +259,6 @@ cout<<"renorm-weigh: "<<renorm_weigh<<endl;
 //=======================================
 cout<<"fftw back"<<endl;
 fftw_execute(planback);
-
-    fftw_free(deltak1);
-    fftw_free(deltak2);
 //==============================================
 //output
 
@@ -286,6 +279,10 @@ cout<<"save to:  "<<outPath<<endl;
 //=====================================
 cout<<"end powerv"<<endl;
 	fftw_free(deltars);
+    fftw_free(deltak1);
+    fftw_free(deltak2);
+    fftw_free(deltar1);
+    fftw_free(deltar2);
 return 0;
 }
   

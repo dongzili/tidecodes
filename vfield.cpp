@@ -31,8 +31,8 @@ double h=0.678;
 double fH=1.55*h*100;
 cout<<"start vfield"<<endl;
 
-char inPath[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00k3d_clean_z1_rpar15.bin"};
-char outPath1[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00v_3d_z1_rpar15.bin"};
+char inPath[]={"/project/zhm/ksz/z1/tidekperp/00k3d_clean_z1_rpar15_kc0.6_l300.bin"};
+char outPath1[]={"/project/zhm/ksz/z1/tidekperp/00v_3d_z1_rpar15_kc0.6_l300.bin"};
 
 //variables and fftw setting
 //=====================================

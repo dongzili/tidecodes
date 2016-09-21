@@ -22,10 +22,10 @@ using namespace std;
 int powermomen()
 {
 cout<<"start powermomen"<<endl;
-//char inPath1[80]={"/home/zhm/dongzi/tidez1/3dtidenew/v_2d_z1_origin.bin"};
-char inPath1[80]={"/home/zhm/dongzi/tidez1/pipdata/00momen_2d_z1_origin.bin"};
-char inPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00momen_2d_z1_rpar15_kc0.5.bin"};
-char plotPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00powermomen_z1_rpar15_kc0.5.dat"};
+//char inPath1[]={"/project/zhm/ksz/z1/tidepart/v_2d_z1_origin.bin"};
+char inPath1[]={"/project/zhm/ksz/z1/result/00momen_2d_z1_origin.bin"};
+char inPath2[]={"/project/zhm/ksz/z1/tidepart/00ns_tide_momen_2d_z1_rpar15_kc1.3_l300.bin"};
+char plotPath2[]={"/project/zhm/ksz/z1/tidepart/00ns_tide_powermomen_z1_rpar15_kc1.3_l300.dat"};
 //variables and fftw setting
 //=================================
     int nn=int(nc);

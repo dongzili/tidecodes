@@ -27,16 +27,15 @@ int main()
 cout<<"start powerv"<<endl;
 
 /*
-char plotPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00den_2dpowerspec_rpar15.dat"};
-char inPath1[80]={"/home/zhm/tides00/1.000den00.bin"};
-char inPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00k3d_noisy_z1_rpar15.bin"};
-char inPath_fil[80]={"/home/zhm/dongzi/tidez1/3dtidenew/10den_noisebias_z1_rpar15.dat"};
+char plotPath2[]={"/home/zhm/dongzi/tidez1/3dtide_data/00den_2dpowerspec_rpar15.dat"};
+char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+char inPath2[]={"/home/zhm/dongzi/tidez1/3dtide_data/00k3d_noisy_z1_rpar15.bin"};
+char inPath_fil[]={"/home/zhm/dongzi/tidez1/3dtide_data/10den_noisebias_z1_rpar15.dat"};
 */
-char plotPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00v_2dpowerspec_rpar15.dat"};
-char inPath1[80]={"/home/zhm/tides00/1.000velz00.bin"};
-char inPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00v_3d_z1_rpar15.bin"};
-char inPath_fil[80]={"/home/zhm/dongzi/tidez1/3dtidenew/10v_noisebias_z1_rpar15_kc0.5.dat"};
-
+char plotPath2[]={"/home/zhm/dongzi/tidez1/3dtide_data/00v_2dpowerspec_rpar15.dat"};
+char inPath1[]={"/home/zhm/tidesData/tides00/1.000velz00.bin"};
+char inPath2[]={"/home/zhm/dongzi/tidez1/3dtide_data/00v_3d_z1_rpar15.bin"};
+char inPath_fil[]={"/home/zhm/dongzi/tidez1/3dtide_data/10v_noisebias_z1_rpar15_kc0.6.dat"};
 //variables and fftw setting
 //=================================
 //    double kcut=kc/dk; //for reconstructed momentum higher than this, cut!

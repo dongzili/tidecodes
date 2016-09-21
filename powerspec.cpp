@@ -22,12 +22,13 @@ int powerspec()
 {
 
 
-char outPath[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00k3d_clean_z1_rpar15.bin"};
-//char plotPath1[80]={"/home/zhm/dongzi/tidez1/3dtidenew/noise.dat"};
-char plotPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00powerspec_rpar15.dat"};
-char inPath1[80]={"/home/zhm/tides00/1.000den00.bin"};
-char inPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00k3d_noisy_z1_rpar15.bin"};
-char inPath_fil[80]={"/home/zhm/dongzi/tidez1/3dtidenew/10den_noisebias_z1_rpar15.dat"};
+char outPath[]={"/project/zhm/ksz/z1/tidekperp/00k3d_clean_z1_rpar15_kc0.6_l300.bin"};
+//char plotPath1[]={"/project/zhm/ksz/z1/tidekperp/noise.dat"};
+char plotPath2[]={"/project/zhm/ksz/z1/tidekperp/00powerspec_rpar15_kc0.6_l300.dat"};
+char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00k3d_noisy_z1_rpar15_kc0.6_l300.bin"};
+char inPath_fil[]={"/project/zhm/ksz/z1/tidekperp/00noisebias_rpar15_kc0.6_l300.dat"};
+//char inPath_fil[]={"/project/zhm/ksz/z1/tidekperp/10den_noisebias_z1_rpar15.dat"};
 //variables and fftw setting
 //=================================
 //    double kcut=kc/dk; //for reconstructed momentum higher than this, cut!
@@ -45,32 +46,28 @@ char inPath_fil[80]={"/home/zhm/dongzi/tidez1/3dtidenew/10den_noisebias_z1_rpar1
     //=========================to group power spectra
 
     int kbin=10; //number of bins for power spectrum
-    //change it you need to change pk[10] as well
+    //change it you need to change pk[10/[10] as well
     double kstart,kend,kgap;
     kstart=1.;
     kend=double(nnc);
     kgap=log10(kend/kstart)/kbin;
 
-//=================================================
-//filter grouping information
-	int kbin_fil=10;
-	double kstart_fil,kend_fil,kgap_fil;
-	kstart_fil=1.;
-	kend_fil=double(nnc);
-	kgap_fil=log10(kend_fil/kstart_fil)/kbin_fil;
 //================================================
 
-    double pk[10],pd[10],pkd[10];
-    double count[10],kcount[10],pcount[10];//one for kappa, one for power_kappa renorm
+    double pk[10][10],pd[10][10],pkd[10][10];
+    double count[10][10],kcount[10][10],pcount[10][10];//one for kappa, one for power_kappa renorm
     
     for (int i=0;i<kbin;i++)
     {
-        pk[i]=0.;
-        pd[i]=0.;
-        pkd[i]=0.;
-        count[i]=0.;
-        kcount[i]=0.;
-        pcount[i]=0.;
+        for (int j=0;j<kbin;j++)
+        {
+        pk[i][j]=0.;
+        pd[i][j]=0.;
+        pkd[i][j]=0.;
+        count[i][j]=0.;
+        kcount[i][j]=0.;
+        pcount[i][j]=0.;
+        }
     }
 
     double *deltar1,*deltar2,*deltars;       //input field
@@ -147,7 +144,7 @@ cout<<"fftw forward"<<endl;
 cout<<"calculate power spectra"<<endl;
 
     int no=0;//for matrix index
-    int index,index1,index2; //for grouping
+    int index1,index2; //for grouping
     double rev_tophat,sincx,sincy,sincz;
     double pkk,pdd,pdk;//,bk;
 
@@ -184,8 +181,8 @@ cout<<"calculate power spectra"<<endl;
                 korth=log10(korth);
 				kpar=log10(kpar);
                 
-				index1=int(floor(korth/kgap_fil));
-				index2=int(floor(kpar/kgap_fil));
+				index1=int(floor(korth/kgap));
+				index2=int(floor(kpar/kgap));
 /*
                 pdk=deltak1[no][0]*deltak2[no][0]+deltak1[no][1]*deltak2[no][1];               
 				if(kmo>kcut)//drop large modes
@@ -198,25 +195,18 @@ cout<<"calculate power spectra"<<endl;
 */
 //====================================================================
 //for real effective modes
-				if (index1<kbin_fil && index2<kbin_fil )
+				if (index1<kbin && index2<kbin )
 				{
-                    if (bb[index1][index2]!=0)
+                    if (bb[index1][index2]>0)
                     {
-                        if (bb[index1][index2]<=0)bb[index1][index2]=1.;
 				deltak2[no][0]=deltak2[no][0]*window[index1][index2]/bb[index1][index2];
 				deltak2[no][1]=deltak2[no][1]*window[index1][index2]/bb[index1][index2];
 					}
-                }
                 else
 				{
 					deltak2[no][0]=0.;
 					deltak2[no][1]=0.;
 				}
-
-				kmo=log10(kmo);
-                index=int(floor(kmo/kgap));
-                if (index < kbin)
-                {
 
 				//deconvolve the filter in N-body simulation
 				if (kx==0) sincx=1.; else sincx=sin(PI*kx/nc)/(PI*kx/nc);
@@ -232,12 +222,12 @@ cout<<"calculate power spectra"<<endl;
 				pkk=pow(deltak2[no][0],2)+pow(deltak2[no][1],2);
                 pdd=pow(deltak1[no][0],2)+pow(deltak1[no][1],2);
                 pdk=deltak1[no][0]*deltak2[no][0]+deltak1[no][1]*deltak2[no][1];               
-                    pk[index]+=pkk;
-                    pd[index]+=pdd;
-                    pkd[index]+=pdk;
-                    count[index]++;
-                    kcount[index]+=window[index1][index2];//weight average
-                    pcount[index]+=pow(window[index1][index2],2);//weight sum for p_kappa
+                    pk[index1][index2]+=pkk;
+                    pd[index1][index2]+=pdd;
+                    pkd[index1][index2]+=pdk;
+                    count[index1][index2]++;
+                    kcount[index1][index2]+=window[index1][index2];//weight average
+                    pcount[index1][index2]+=pow(window[index1][index2],2);//weight sum for p_kappa
                 }
 				else
 				{
@@ -257,18 +247,22 @@ cout<<"save to:  "<<plotPath2<<endl;
 	
     for (int i=0;i<kbin;i++)
     {
-        if (kcount[i]!=0)
+        for (int j=0;j<kbin;j++)
         {
-			renorm_weigh+=kcount[i];
-            pk[i]/=pcount[i];
-            pd[i]/=count[i];
-            pkd[i]/=kcount[i];
-if (isnan(pk[i]*pd[i]*pkd[i])!=0) return -1;
+        if (kcount[i][j]!=0)
+        {
+			renorm_weigh+=kcount[i][j];
+            pk[i][j]/=pcount[i][j];
+            pd[i][j]/=count[i][j];
+            pkd[i][j]/=kcount[i][j];
+            if (isnan(pk[i][j]*pd[i][j]*pkd[i][j])!=0) return -1;
 
         }
-        double kout=pow(10,(i+0.5)*kgap)*dk;
-    fprintf(out1,"%e  %e  %e  %e  %e %e %e \n",kout,pd[i]*renorm,pk[i]*renorm,pkd[i]*renorm,count[i],kcount[i],pcount[i]);
+        double kout1=pow(10,i*kgap)*dk;
+        double kout2=pow(10,j*kgap)*dk;
+    fprintf(out1,"%e  %e %e  %e  %e  %e %e %e \n",kout1,kout2,pd[i][j]*renorm,pk[i][j]*renorm,pkd[i][j]*renorm,count[i][j],kcount[i][j],pcount[i][j]);
     }
+}
     fclose(out1);
 
 cout<<"renorm-weigh: "<<renorm_weigh<<endl;

@@ -38,10 +38,10 @@ int shear()
 {
 cout<<"start seperate field calculation"<<endl;
 char inPath[]={"/home/zhm/dongzi/tidez1/3dtidenew/00shear"};
-char inname[80];
+char inname[];
 
-char backupPath[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00r_part_rpar15_kc0.5_bin10.dat"};
-char inPath1[80]={"/home/zhm/tides00/1.000den00.bin"};
+char backupPath[]={"/home/zhm/dongzi/tidez1/3dtidenew/00r_part_rpar15_kc0.6_bin10.dat"};
+char inPath1[]={"/home/zhm/tides00/1.000den00.bin"};
 
 
 //double alpha=0.9709,beta=2.1645;//for a=1,z=0

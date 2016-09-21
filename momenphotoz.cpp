@@ -28,15 +28,15 @@ using namespace std;
 int momenfield()
 {
     cout<<"start momenfield"<<endl;
-char inPath1[80]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
 //char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
-char inPath2[80]={"/project/zhm/ksz/z1/tidepart/00v_3d_clean_z1_rpar15_kc0.5.bin"};
-char outPath[]={"/project/zhm/ksz/z1/photoz/00tide_photoz_momen_2d_z1_rpar15_kc0.5_dchi200.bin"};
+char inPath2[]={"/project/zhm/ksz/z1/tidepart/00v_3d_clean_z1_rpar15_kc0.6.bin"};
+char outPath[]={"/project/zhm/ksz/z1/photoz/00tide_photoz_momen_2d_z1_rpar15_kc0.6_dchi200.bin"};
 
     /*
-char inPath2[80]={"/home/zhm/tidesData/tides00/1.000velz00.bin"};
+char inPath2[]={"/home/zhm/tidesData/tides00/1.000velz00.bin"};
 
-char outPath[80]={"/project/zhm/ksz/z1/photoz/00momen_2d_z1_origin.bin"};
+char outPath[]={"/project/zhm/ksz/z1/photoz/00momen_2d_z1_origin.bin"};
 
 */
 //variables and fftw setting

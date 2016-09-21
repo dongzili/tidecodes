@@ -1,4 +1,5 @@
 #!/bin/bash
 
-sed -i 's/\/05/\/00/g' *.cpp
-sed -i 's/tides05/tides00/g' *.cpp comp.sh
+sed -i 's/kperp0.13/l300/g' *.cpp
+sed -i 's/\[80\]/\[\]/g' *.cpp
+sed -i 's/kc0.5/kc0.6/g' *.cpp

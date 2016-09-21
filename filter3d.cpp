@@ -22,11 +22,11 @@ int filter3d()
 {
 
 
-//char outPath1[80]={"/home/zhm/dongzi/tide1.17/tide0/k3d_clean.bin"};
-//char plotPath1[80]={"/home/zhm/dongzi/tide1.17/tide0/noise.dat"};
-char backupPath[80]={"/home/zhm/dongzi/tidez1/3dtidenew/003dnoisefilter_rpar15_kc0.5_bin10.dat"};
-char inPath1[80]={"/home/zhm/tides00/1.000den00.bin"};
-char inPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00k3d_noisy_z1_rpar15.bin"};
+//char outPath1[]={"/home/zhm/dongzi/tide1.17/tide0/k3d_clean.bin"};
+//char plotPath1[]={"/home/zhm/dongzi/tide1.17/tide0/noise.dat"};
+char backupPath[]={"/project/zhm/ksz/z1/tidekperp/3d00noisefilter_rpar15_kc0.6_bin10.dat"};
+char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00k3d_noisy_z1_rpar15.bin"};
 //variables and fftw setting
 //=================================
     int nn=int(nc);

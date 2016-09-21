@@ -22,11 +22,12 @@ int filter_neg()
 {
 
 
-//char outPath1[80]={"/home/zhm/dongzi/tide1.17/tide0/k3d_clean.bin"};
-//char plotPath1[80]={"/home/zhm/dongzi/tide1.17/tide0/noise.dat"};
-char backupPath[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00noisefilter_rpar15_kc0.5_bin10.dat"};
-char inPath1[80]={"/home/zhm/tides00/1.000den00.bin"};
-char inPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00k3d_noisy_z1_rpar15.bin"};
+//char outPath1[]={"/home/zhm/dongzi/tide1.17/tide0/k3d_clean.bin"};
+//char plotPath1[]={"/home/zhm/dongzi/tide1.17/tide0/noise.dat"};
+char backupPath[]={"/project/zhm/ksz/z1/tidekperp/00noisefilter_rpar15_kc0.6_l300_bin10.dat"};
+char filterPath[]={"/project/zhm/ksz/z1/tidekperp/00noisebias_rpar15_kc0.6_l300.dat"};
+char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00k3d_noisy_z1_rpar15_kc0.6_l300.bin"};
 //variables and fftw setting
 //=================================
     int nn=int(nc);
@@ -201,6 +202,8 @@ cout<<"negative correlation"<<endl;
 cout<<"backup save to: "<<backupPath<<endl;
 
 	FILE *out2=fopen(backupPath,"w");
+    FILE *out=fopen(filterPath,"w");
+
 		fprintf(out2," negative b:  %i \n",negco);
 		fprintf(out2," b, window, pn, pd,pk,pkd, count \n");
 
@@ -218,9 +221,12 @@ cout<<"backup save to: "<<backupPath<<endl;
         }
         
 	fprintf(out2,"%e  %e  %e  %e  %e  %e  %e \n",bb[i][j],window[i][j],pn[i][j]*renorm,pd[i][j]*renorm,pk[i][j]*renorm,pkd[i][j]*renorm,kcount[i][j]);
+    fprintf(out,"%e %e \n",bb[i][j],window[i][j]);
+
     }
 	}
 	fclose(out2);
+    fclose(out);
 
 
 //=======================================

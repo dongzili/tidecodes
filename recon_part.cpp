@@ -44,8 +44,9 @@ char inPath[]={"/home/zhm/dongzi/tidez1/pipdata/smooth1.25lpk.bin"};
 char inPath_pl[]={"/home/zhm/dongzi/tidez1/pipdata/coeffz1.dat"};
 */
 
-char outPath[]={"/project/zhm/ksz/z1/tidekperp/00k3d_noisy_z1_rpar15_kc0.6_l300.bin"};
-char inPath[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z1_rpar15_kc0.6_l300.bin"};
+char outPath[]={"/project/zhm/ksz/z1/tidekperp/00k3d_noisy_z1_rpar15.bin"};
+char inPath[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z1_rpar15.bin"};
+
 char inPath_pl[]={"/home/zhm/dongzi/tidez1/coeffz1.dat"};
 
 
@@ -310,26 +311,12 @@ cout<<"calculate noisy k3d"<<endl;
                 k2=kx2+ky2+kz2;
                 k3d[no][0]=1./k2*(
                            (kx2-ky2)*sheark1[no][0]+2.*kx*ky*sheark2[no][0]
-                           +2.*kx*kz*shearkx[no][0]+2.*ky*kz*shearky[no][0]);
-
+                           +2.*kx*kz*shearkx[no][0]+2.*ky*kz*shearky[no][0]
+                           +(2.*kz2-kx2-ky2)*shearkz[no][0]);
                 k3d[no][1]=1./k2*(
                            (kx2-ky2)*sheark1[no][1]+2.*kx*ky*sheark2[no][1]
-                           +2.*kx*kz*shearkx[no][1]+2.*ky*kz*shearky[no][1]);
-
-                           if (log(kz2+1)>log(kx2+ky2+1))
-                           {
-                               k3d[no][0]+=1./k2*
-                                   (2.*kz2-kx2-ky2)*shearkz[no][0];
-                               k3d[no][1]+=1./k2*
-                                   (2.*kz2-kx2-ky2)*shearkz[no][1];
-                           }
-
-                           if (log(kz2+1)<log(kx2+ky2+1))
-                           {
-                               k3d[no][0]=2/3./(kx2+ky2)*(
-                                       (kx2-ky2)*sheark1[no][0]+2.*kx*ky*sheark2[no][0]);
-                           }
-
+                           +2.*kx*kz*shearkx[no][1]+2.*ky*kz*shearky[no][1]
+                           +(2.*kz2-kx2-ky2)*shearkz[no][1]);
 //cout<<sheark1[no][0];
                 no++;
 			  }

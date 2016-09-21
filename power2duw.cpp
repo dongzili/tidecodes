@@ -26,10 +26,10 @@ int main()
 {
 cout<<"start powerv"<<endl;
 
-//char plotPath1[80]={"/home/zhm/dongzi/tidez1/3dtidenew/noise.dat"};
-char plotPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00den_smofs_2dpowerspec_rpar15.dat"};
-char inPath1[80]={"/home/zhm/tides00/1.000den00.bin"};
-char inPath2[80]={"/home/zhm/dongzi/tidez1/3dtidenew/00smooth1.25_z1_rpar15.bin"};
+//char plotPath1[]={"/project/zhm/ksz/z1/tidekperp/noise.dat"};
+char plotPath2[]={"/project/zhm/ksz/z1/tidekperp/00den_smofs_2dpowerspec_rpar15.dat"};
+char inPath1[]={"/home/zhm/tidesData/tides00/1.000den00.bin"};
+char inPath2[]={"/project/zhm/ksz/z1/tidekperp/00smooth1.25_z1_rpar15.bin"};
 
 
 //variables and fftw setting
